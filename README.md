@@ -1,0 +1,3 @@
+-Importez d'abord le fichier sql
+-Modifiez la classe DBConnect pour la connexion avec votre utilisateur
+-Déployez dans tomcat ou importez le projet
