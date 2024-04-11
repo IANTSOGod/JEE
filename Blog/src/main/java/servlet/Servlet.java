@@ -43,6 +43,7 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PrintWriter p=response.getWriter();
 		String username=request.getParameter("username");
 		String mdp=request.getParameter("password");
 		String email=request.getParameter("email");
@@ -52,6 +53,24 @@ public class Servlet extends HttpServlet {
 		usr.presenter();
 		Create creation=new Create();
 		creation.Create_user(usr);
+		p.append("<!DOCTYPE html>\n"
+				+ "<html>\n"
+				+ "<head>\n"
+				+ "<meta charset=\"UTF-8\">\n"
+				+ "<title>IBLOG</title>\n"
+				+ "<link rel=\"stylesheet\" href=\"style.css\">\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "<form method='get' action=\"/Blog/Servlet\">\n"
+				+ "	<p class=\"textes\">Username</p>\n"
+				+ "	<input type=\"text\" name=\"username\" required class=\"Input\"><br>\n"
+				+ "	<p class=\"textes\">Password</p>\n"
+				+ "	<input type=\"password\" name=\"password\" required class=\"Input\"><br>\n"
+				+ "	Don't have an account ? Create one <a href=\"create_acccount.html\" class=\"lien\">here</a>\n"
+				+ "	<input type=\"submit\" value=\"send\" class=\"pseudo-bouton\">\n"
+				+ "</form>\n"
+				+ "</body>\n"
+				+ "</html>");
 	}
 
 }
